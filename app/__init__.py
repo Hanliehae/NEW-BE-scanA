@@ -1,9 +1,8 @@
 from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from app.config import Config
-from app.models import db  # Hanya import db dari models
-from app import models  # Penting untuk mendaftarkan semua model
+from .extensions import db
+from app.models import *  # Pastikan hanya import ini, karena sudah ada di models/__init__.py
 
 migrate = Migrate()
 

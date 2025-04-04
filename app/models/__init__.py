@@ -1,7 +1,4 @@
-from flask_sqlalchemy import SQLAlchemy
-
-db = SQLAlchemy()
-
+from app.extensions import db
 from .user import User
 from .mahasiswa import Mahasiswa
 from .mata_kuliah import MataKuliah
