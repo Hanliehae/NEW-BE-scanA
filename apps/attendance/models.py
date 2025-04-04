@@ -1,7 +1,7 @@
 from django.db import models
-from users.models import User
-from schedule.models import Jadwal
-from courses.models import MataKuliah
+from apps.users.models import User
+from apps.schedule.models import Jadwal
+from apps.courses.models import MataKuliah
 
 class Enrollment(models.Model):
     mahasiswa = models.ForeignKey(User, on_delete=models.CASCADE, limit_choices_to={'role': 'student'})
@@ -16,7 +16,7 @@ class Enrollment(models.Model):
 class Presensi(models.Model):
     mahasiswa = models.ForeignKey(User, on_delete=models.CASCADE, limit_choices_to={'role': 'student'})
     jadwal = models.ForeignKey(Jadwal, on_delete=models.CASCADE)
-    status_kehadiran = models.CharField(max_length=10, choices=[('Hadir', 'Hadir'), ('Tidak Hadir', 'Tidak Hadir')])
+    status_kehadiran = models.CharField(max_length=50)  # ✅ Diperbesar jadi 15
     waktu_scan = models.DateTimeField(auto_now_add=True)
     foto_scan = models.ImageField(upload_to='scan_attendance/', null=True, blank=True)
 

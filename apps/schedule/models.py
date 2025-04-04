@@ -1,5 +1,5 @@
 from django.db import models
-from courses.models import MataKuliah
+from apps.courses.models import MataKuliah
 
 class Jadwal(models.Model):
     mata_kuliah = models.ForeignKey(MataKuliah, on_delete=models.CASCADE)
@@ -11,5 +11,8 @@ class Jadwal(models.Model):
     jam_mulai = models.TimeField()
     jam_selesai = models.TimeField()
 
+    class Meta:
+        app_label = 'schedule'
+        
     def __str__(self):
         return f"{self.mata_kuliah.nama_mk} - Pertemuan {self.pertemuan_ke}"

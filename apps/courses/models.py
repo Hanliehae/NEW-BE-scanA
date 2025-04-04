@@ -6,5 +6,8 @@ class MataKuliah(models.Model):
     semester = models.IntegerField()
     tahun_akademik = models.CharField(max_length=10)
 
+    class Meta:
+        app_label = 'courses'
+
     def __str__(self):
         return self.nama_mk
