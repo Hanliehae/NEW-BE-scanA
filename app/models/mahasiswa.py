@@ -1,3 +1,4 @@
+# app/models/mahasiswa.py
 from app.extensions import db
 
 class Mahasiswa(db.Model):
@@ -7,5 +8,10 @@ class Mahasiswa(db.Model):
     nama_lengkap = db.Column(db.String(100), nullable=False)
     nim = db.Column(db.String(20), unique=True, nullable=False)
     email = db.Column(db.String(100), unique=True, nullable=False)
-    password_hash = db.Column(db.String(128), nullable=False)
-    
+    password = db.Column(db.String(200), nullable=False)  # disimpan dalam bentuk hashed
+    no_telepon = db.Column(db.String(20))
+    mata_kuliah = db.Column(db.String(100))
+
+    foto_tangan_kiri = db.Column(db.String(200))
+    foto_tangan_kanan = db.Column(db.String(200))
+    foto_wajah = db.Column(db.String(200))

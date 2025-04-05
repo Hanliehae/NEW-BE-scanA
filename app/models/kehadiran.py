@@ -9,3 +9,6 @@ class Kehadiran(db.Model):
     jadwal_id = db.Column(db.Integer, db.ForeignKey('jadwal.id'), nullable=False)
     waktu_scan = db.Column(db.DateTime, default=datetime.utcnow, nullable=False)
     status = db.Column(db.String(10), nullable=False)  # "Hadir" atau "Absen"
+
+    user = db.relationship('User', backref='kehadiran_list')
+    jadwal = db.relationship('Jadwal', backref='kehadiran_list')
