@@ -11,9 +11,6 @@ class User(db.Model):
     password_hash = db.Column(db.String(255), nullable=False)
     role = db.Column(db.String(10), nullable=False)  # "admin" atau "mahasiswa"
 
-    # Relasi ke Kehadiran
-    kehadiran = db.relationship('Kehadiran', backref='user', lazy=True)
-
     # 🔐 Properti password dan verifikasi hash
     @property
     def password(self):

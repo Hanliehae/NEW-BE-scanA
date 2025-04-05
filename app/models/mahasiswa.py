@@ -15,3 +15,5 @@ class Mahasiswa(db.Model):
     foto_tangan_kiri = db.Column(db.String(200))
     foto_tangan_kanan = db.Column(db.String(200))
     foto_wajah = db.Column(db.String(200))
+
+    riwayat_kehadiran = db.relationship('Kehadiran', backref='mahasiswa', lazy=True)
