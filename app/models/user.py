@@ -1,5 +1,5 @@
 from app.extensions import db
-from flask_sqlalchemy import SQLAlchemy
+from werkzeug.security import generate_password_hash, check_password_hash
 
 class User(db.Model):
     __tablename__ = 'users'
@@ -13,3 +13,15 @@ class User(db.Model):
 
     # Relasi ke Kehadiran
     kehadiran = db.relationship('Kehadiran', backref='user', lazy=True)
+
+    # 🔐 Properti password dan verifikasi hash
+    @property
+    def password(self):
+        raise AttributeError("Password is not readable!")
+
+    @password.setter
+    def password(self, plain_text):
+        self.password_hash = generate_password_hash(plain_text)
+
+    def verify_password(self, password):
+        return check_password_hash(self.password_hash, password)

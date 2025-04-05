@@ -4,9 +4,7 @@ class MataKuliah(db.Model):
     __tablename__ = 'mata_kuliah'
 
     id = db.Column(db.Integer, primary_key=True)
-    kode_mk = db.Column(db.String(20), unique=True, nullable=False)
+    kode_mk = db.Column(db.String(10), nullable=False)
     nama_mk = db.Column(db.String(100), nullable=False)
-    semester = db.Column(db.String(10), nullable=False)
-
-    # Relasi ke Jadwal
-    jadwal = db.relationship('Jadwal', backref='mata_kuliah', lazy=True)
+    semester = db.Column(db.Integer, nullable=False)
+    tahun_akademik = db.Column(db.String(10), nullable=False)
