@@ -15,7 +15,6 @@ def add_mahasiswa():
     email = request.form.get("email")
     password = generate_password_hash(request.form.get("password"))
     no_telepon = request.form.get("no_telepon")
-    mata_kuliah = request.form.get("mata_kuliah")
 
     # Ambil file upload
     foto_kiri = request.files.get("foto_tangan_kiri")
@@ -43,7 +42,6 @@ def add_mahasiswa():
         email=email,
         password=password,
         no_telepon=no_telepon,
-        mata_kuliah=mata_kuliah,
         foto_tangan_kiri=path_kiri,
         foto_tangan_kanan=path_kanan,
         foto_wajah=path_wajah

@@ -2,6 +2,7 @@ from werkzeug.security import generate_password_hash
 
 # Ganti password ini sesuai kebutuhan
 plain_password = "admin123"
+plain_password = "vincen123"
 
 # Generate hash-nya
 hashed_password = generate_password_hash(plain_password)
